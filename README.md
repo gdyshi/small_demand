@@ -5,8 +5,8 @@ Small demand project
 ## gan_cartoon
 gan生成卡通人物
 ## gan_deblurring
-gan去模糊
+190416 gan去模糊
 ## detect_people
-fast rcnn 检测人运动
+190418 fast rcnn 检测人运动
 ## gan_Sketch
-gan生成素描
+190422 gan生成素描
