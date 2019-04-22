@@ -6,3 +6,7 @@ Small demand project
 gan生成卡通人物
 ## gan_deblurring
 gan去模糊
+## detect_people
+fast rcnn 检测人运动
+## gan_Sketch
+gan生成素描
