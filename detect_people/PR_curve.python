@@ -5,7 +5,7 @@
 
 # ∑n(Rn−Rn−1)Pn∑n(Rn−Rn−1)Pn
 
-
+import matplotlib.pyplot as plt
 def get_pr(pos_prob,y_true):
     pos = y_true[y_true==1]
     threshold = np.sort(pos_prob)[::-1]
@@ -21,6 +21,7 @@ def get_pr(pos_prob,y_true):
             fp += 1
             recall.append(tp/len(pos))
             precision.append(tp/(tp+fp))    return precision,recall,auc
+
 
 precision_lr,recall_lr,auc_lr = get_pr(pos_prob_lr,y_test)
 precision_rf,recall_rf,auc_rf = get_pr(pos_prob_rf,y_test)
