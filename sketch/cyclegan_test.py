@@ -298,5 +298,5 @@ class CycleGAN():
 
 if __name__ == '__main__':
     gan = CycleGAN()
-    for i in range(100):
+    for i in range(1):
         gan.test(i,epoch_batch='4_6600')
