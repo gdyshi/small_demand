@@ -63,10 +63,14 @@ class FixedBatchNormalization(Layer):
                 epsilon=self.epsilon)
         else:
             # need broadcasting
-            broadcast_running_mean = K.reshape(self.running_mean, broadcast_shape)
-            broadcast_running_std = K.reshape(self.running_std, broadcast_shape)
-            broadcast_beta = K.reshape(self.beta, broadcast_shape)
-            broadcast_gamma = K.reshape(self.gamma, broadcast_shape)
+            broadcast_running_mean = self.running_mean
+            broadcast_running_std = self.running_std
+            broadcast_beta = self.beta
+            broadcast_gamma = self.gamma
+            # broadcast_running_mean = K.reshape(self.running_mean, broadcast_shape)
+            # broadcast_running_std = K.reshape(self.running_std, broadcast_shape)
+            # broadcast_beta = K.reshape(self.beta, broadcast_shape)
+            # broadcast_gamma = K.reshape(self.gamma, broadcast_shape)
             x_normed = K.batch_normalization(
                 x, broadcast_running_mean, broadcast_running_std,
                 broadcast_beta, broadcast_gamma,
