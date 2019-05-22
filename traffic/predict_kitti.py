@@ -140,7 +140,34 @@ def predict_single_image(img_path, model_rpn, model_classifier_only, cfg, class_
     cv2.waitKey(0)
     return pred
 
-
+name_map={
+'17':'禁止进入',
+'18':'危险',
+'19':'向左弯曲',
+'20':'向右弯曲',
+'21':'弯曲',
+'22':'不平路面',
+'23':'滑路',
+'24':'道路变窄',
+'25':'施工',
+'26':'交通信号灯',
+'27':'人行横道',
+'28':'学校路口',
+'29':'循环交叉',
+'30':'雪',
+'31':'动物',
+'32':'限制结束',
+'33':'向右',
+'34':'向左',
+'35':'直行',
+'36':'向右或直行',
+'37':'向左或直行',
+'38':'保留权利',
+'39':'向左',
+'40':'环形交叉口',
+'41':'限制结束 ',
+'42':'限制超车',
+}
 def predict(args_):
     path = args_.path
     with open('config.pickle', 'rb') as f_in:
@@ -154,6 +181,11 @@ def predict(args_):
         class_mapping['bg'] = len(class_mapping)
 
     class_mapping = {v: k for k, v in class_mapping.items()}
+    for k, v in class_mapping.items():
+        name=v
+        if v in name_map:
+            name=name_map[v]
+        class_mapping[k]=name
     input_shape_img = (None, None, 3)
     input_shape_features = (None, None, 1024)
 
